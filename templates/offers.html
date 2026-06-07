@@ -139,12 +139,36 @@
             transition-delay: 0.1s;
         }
 
+        /* --- التجاوب (Responsive) --- */
         @media (max-width: 992px) {
             .offers-grid { grid-template-columns: repeat(2, 1fr); }
         }
+        
         @media (max-width: 768px) {
+            .offers-section { 
+                padding: 40px 5%; /* تقليل الهوامش لتناسب الشاشات الصغيرة */
+            }
+            .container {
+                text-align: center; /* توسيط العنوان الرئيسي في الموبايل */
+            }
+            h1 {
+                font-size: 35px; /* تصغير حجم العنوان قليلاً */
+            }
             .offers-grid { grid-template-columns: 1fr; }
             .offer-card { height: 320px; }
+            
+            /* حل مشكلة أجهزة اللمس (Touch Devices) التي لا تدعم Hover */
+            .offer-card::after {
+                opacity: 0.85; /* إظهار التدرج اللوني بشكل دائم لتوضيح النص */
+            }
+            .offer-title {
+                transform: translateY(-5px);
+                text-shadow: none;
+            }
+            .offer-description {
+                opacity: 1; /* إظهار الوصف بشكل دائم */
+                transform: translateY(0);
+            }
         }
     </style>
 {% endblock %}

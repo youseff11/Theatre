@@ -6,7 +6,8 @@
         .hero-section {
             position: relative; 
             width: 100%; 
-            height: calc(100vh - 100px); 
+            /* تم تعديل الارتفاع ليتوافق مع ارتفاع الهيدر الجديد (95px) */
+            min-height: calc(100vh - 95px); 
             background-image: url("{% static 'images/1.jpeg' %}");
             background-size: cover; 
             background-position: center;
@@ -28,9 +29,10 @@
             flex-direction: column; 
             align-items: center; 
         }
-        /* تعديل لعنصر الصورة */
+        
         .title-image {
-            max-width: 350px; /* يمكنك تعديل العرض حسب حجم صورتك */
+            max-width: 350px; 
+            width: 100%; /* إضافة هذا السطر لضمان عدم تجاوز الصورة لحجم الشاشة */
             height: auto;
             margin-bottom: 25px;
             filter: drop-shadow(2px 2px 15px rgba(0,0,0,0.7));
@@ -40,8 +42,14 @@
             transform: scale(1.02);
         }
         
-        .subtitle-ar { color: #ffffff; font-size: 24px; font-weight: 700; margin-bottom: 5px; text-shadow: 1px 1px 8px rgba(0,0,0,0.8); }
-        .subtitle-en { color: #d1d1d1; font-size: 16px; font-family: sans-serif; margin-bottom: 35px; letter-spacing: 1px; }
+        .subtitle-ar { 
+            color: #ffffff; font-size: 24px; font-weight: 700; 
+            margin-bottom: 5px; text-shadow: 1px 1px 8px rgba(0,0,0,0.8); 
+        }
+        .subtitle-en { 
+            color: #d1d1d1; font-size: 16px; font-family: sans-serif; 
+            margin-bottom: 35px; letter-spacing: 1px; text-align: center; 
+        }
         
         .cta-button {
             background-color: #ef6424; color: #ffffff; padding: 12px 45px; border-radius: 30px; 
@@ -49,6 +57,30 @@
             box-shadow: 0 4px 15px rgba(239, 100, 36, 0.4); transition: transform 0.3s, background-color 0.3s;
         }
         .cta-button:hover { background-color: #d8561c; transform: translateY(-3px); }
+
+        /* --- التجاوب (Responsive) للموبايل والتابلت --- */
+        @media (max-width: 768px) {
+            .hero-content {
+                justify-content: center; /* توسيط المحتوى بدلاً من إزاحته لليمين */
+                padding-right: 0; 
+                padding: 0 5%; /* إضافة هوامش آمنة من الجانبين */
+            }
+            .title-image {
+                max-width: 250px; /* تصغير حجم الصورة في الموبايل */
+                margin-bottom: 15px;
+            }
+            .subtitle-ar {
+                font-size: 20px; /* تصغير الخط العربي */
+            }
+            .subtitle-en {
+                font-size: 14px; /* تصغير الخط الإنجليزي */
+                margin-bottom: 25px;
+            }
+            .cta-button {
+                font-size: 16px;
+                padding: 10px 35px; /* تصغير حجم الزر قليلاً */
+            }
+        }
     </style>
 {% endblock %}
 

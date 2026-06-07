@@ -141,12 +141,36 @@
             text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
         }
 
+        /* --- التجاوب (Responsive) --- */
         @media (max-width: 992px) {
-            .stats-section { height: auto; min-height: 100vh; }
-            .stats-container { grid-template-columns: repeat(2, 1fr); }
+            .stats-section { height: auto; min-height: 100vh; padding: 60px 5%; }
+            .stats-container { grid-template-columns: repeat(2, 1fr); gap: 20px; }
         }
-        @media (max-width: 576px) {
+
+        @media (max-width: 768px) {
+            .first-page-section { padding: 40px 5%; }
+            
+            h1 { 
+                font-size: 35px; /* تصغير العنوان */
+                text-align: center; /* توسيط العنوان في الموبايل */
+                margin-bottom: 30px; 
+            }
+            
+            p { 
+                font-size: 18px; /* تصغير حجم الفقرات ليكون مقروءاً */
+                line-height: 1.8; 
+                text-align: right; /* التخلي عن justify لأنه يسبب فراغات مزعجة في الموبايل */
+            }
+
             .stats-container { grid-template-columns: 1fr; }
+            
+            .stat-card { padding: 35px 20px; }
+            
+            .stat-number { font-size: 50px; } /* تصغير حجم الرقم */
+            
+            .stat-icon { width: 45px; height: 45px; } /* تصغير الأيقونة */
+            
+            .stat-title { font-size: 22px; } /* تصغير عنوان الإحصائية */
         }
     </style>
 {% endblock %}

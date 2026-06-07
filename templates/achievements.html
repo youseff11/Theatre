@@ -26,7 +26,8 @@
 
         .achievements-section {
             width: 100%;
-            padding: 80px 20px;
+            min-height: calc(100vh - 95px); /* لضمان دفع الفوتر للأسفل */
+            padding: 80px 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -62,17 +63,19 @@
         }
 
         /* التأثير عند الـ Hover */
-        .ach-item:hover {
-            background-color: #fcf8e3;
-            padding-right: 20px; /* إضافة مسافة بسيطة عند التمرير */
-            padding-left: 20px;
-            border-radius: 10px;
-        }
+        @media (hover: hover) { /* ضمان تطبيق التأثير فقط على الأجهزة التي تدعم الماوس */
+            .ach-item:hover {
+                background-color: #fcf8e3;
+                padding-right: 20px; 
+                padding-left: 20px;
+                border-radius: 10px;
+            }
 
-        .ach-item:hover .ach-year,
-        .ach-item:hover .ach-title,
-        .ach-item:hover .ach-desc {
-            color: #5d4037 !important;
+            .ach-item:hover .ach-year,
+            .ach-item:hover .ach-title,
+            .ach-item:hover .ach-desc {
+                color: #5d4037 !important;
+            }
         }
 
         .ach-year {
@@ -104,9 +107,39 @@
             transition: color 0.4s ease;
         }
 
+        /* --- التجاوب (Responsive) للموبايل --- */
         @media (max-width: 768px) {
-            .ach-item { flex-direction: column; text-align: center; gap: 15px; }
-            .ach-year { min-width: auto; }
+            .achievements-section {
+                padding: 40px 5%; /* تقليل الهوامش لتناسب الموبايل */
+            }
+            
+            h1 {
+                font-size: 35px; /* تصغير العنوان الرئيسي */
+                margin-bottom: 30px;
+            }
+
+            .ach-item { 
+                flex-direction: column; 
+                gap: 15px; 
+                padding: 25px 0; 
+            }
+
+            .ach-year { 
+                min-width: auto; 
+                font-size: 38px; /* تصغير حجم السنة */
+            }
+
+            .ach-content {
+                text-align: center; /* توسيط النص بالكامل بدلاً من اليمين في الموبايل */
+            }
+
+            .ach-title {
+                font-size: 22px; /* تصغير عنوان الإنجاز */
+            }
+
+            .ach-desc {
+                font-size: 16px; /* تصغير الوصف */
+            }
         }
     </style>
 {% endblock %}

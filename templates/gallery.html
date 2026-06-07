@@ -47,7 +47,7 @@
             margin-bottom: 20px;
         }
 
-        /* ⬇️ التقسيمة الدقيقة للشبكة حسب طلبك ⬇️ */
+        /* ⬇️ التقسيمة الدقيقة للشبكة ⬇️ */
         .gallery-grid {
             max-width: 1200px;
             width: 100%;
@@ -67,114 +67,59 @@
             cursor: pointer;
         }
 
-        /* 1. صورة كبيرة على اليمين (تأخذ عمودين و 4 صفوف) */
-        .gallery-item:nth-child(1) {
-            grid-column: 1 / 3; 
-            grid-row: 1 / 5;
-        }
-
-        /* 2. صورة صغيرة تحت الكبيرة (جهة اليمين) */
-        .gallery-item:nth-child(2) {
-            grid-column: 1 / 2;
-            grid-row: 5 / 7;
-        }
-
-        /* 3. صورة صغيرة تحت الكبيرة (بجوار السابقة) */
-        .gallery-item:nth-child(3) {
-            grid-column: 2 / 3;
-            grid-row: 5 / 7;
-        }
-
-        /* 4. صورة من الصورتين اللي فوق بعض (العلوية) */
-        .gallery-item:nth-child(4) {
-            grid-column: 3 / 4;
-            grid-row: 1 / 4;
-        }
-
-        /* 5. صورة من الصورتين اللي فوق بعض (السفلية) */
-        .gallery-item:nth-child(5) {
-            grid-column: 3 / 4;
-            grid-row: 4 / 7;
-        }
-
+        /* 1. صورة كبيرة على اليمين */
+        .gallery-item:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 5; }
+        /* 2. صورة صغيرة تحت الكبيرة */
+        .gallery-item:nth-child(2) { grid-column: 1 / 2; grid-row: 5 / 7; }
+        /* 3. صورة صغيرة تحت الكبيرة بجوار السابقة */
+        .gallery-item:nth-child(3) { grid-column: 2 / 3; grid-row: 5 / 7; }
+        /* 4. صورة من الصورتين العلوية */
+        .gallery-item:nth-child(4) { grid-column: 3 / 4; grid-row: 1 / 4; }
+        /* 5. صورة من الصورتين السفلية */
+        .gallery-item:nth-child(5) { grid-column: 3 / 4; grid-row: 4 / 7; }
         /* 6. صورة واحدة طويلة على أقصى اليسار */
-        .gallery-item:nth-child(6) {
-            grid-column: 4 / 5;
-            grid-row: 1 / 7;
-        }
+        .gallery-item:nth-child(6) { grid-column: 4 / 5; grid-row: 1 / 7; }
 
         /* تأثيرات الصور والخلفية */
         .gallery-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             z-index: 1;
         }
 
-        .gallery-item:hover .gallery-bg {
-            transform: scale(1.1);
-        }
+        .gallery-item:hover .gallery-bg { transform: scale(1.1); }
 
         .gallery-item::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(to top, rgba(62, 39, 35, 0.85) 10%, rgba(93, 64, 55, 0.4) 100%);
-            z-index: 2;
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            z-index: 2; opacity: 0; transition: opacity 0.4s ease;
         }
 
-        .gallery-item:hover::after {
-            opacity: 1;
-        }
+        .gallery-item:hover::after { opacity: 1; }
 
         .gallery-content {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            padding: 25px;
-            z-index: 3;
-            text-align: right;
-            direction: rtl;
-            opacity: 0;
-            transform: translateY(20px);
+            position: absolute; bottom: 0; right: 0; width: 100%; padding: 25px;
+            z-index: 3; text-align: right; direction: rtl;
+            opacity: 0; transform: translateY(20px);
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
-        .gallery-item:hover .gallery-content {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .gallery-item:hover .gallery-content { opacity: 1; transform: translateY(0); }
 
         .gallery-title {
-            font-size: 20px;
-            font-weight: 900;
-            color: #ffffff;
-            margin-bottom: 8px;
-            line-height: 1.3;
+            font-size: 20px; font-weight: 900; color: #ffffff;
+            margin-bottom: 8px; line-height: 1.3;
         }
 
         .gallery-tag {
-            font-size: 13px;
-            font-weight: 700;
-            color: #ef6424;
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 4px 12px;
-            border-radius: 15px;
-            display: inline-block;
+            font-size: 13px; font-weight: 700; color: #ef6424;
+            background-color: rgba(255, 255, 255, 0.95); padding: 4px 12px;
+            border-radius: 15px; display: inline-block;
         }
 
-        /* التجاوب مع الموبايل والتابلت لترتيبهم بشكل مناسب */
+        /* --- التجاوب (Responsive) --- */
         @media (max-width: 992px) {
             .gallery-grid { 
                 grid-template-columns: repeat(2, 1fr); 
@@ -185,7 +130,12 @@
             .gallery-item:nth-child(4), .gallery-item:nth-child(5) { grid-column: span 1; grid-row: span 1; }
             .gallery-item:nth-child(6) { grid-column: 1 / 3; grid-row: span 2; }
         }
+        
         @media (max-width: 768px) {
+            .gallery-section { padding: 40px 5%; } /* ضبط المسافات الجانبية */
+            .container { text-align: center; } /* توسيط العنوان */
+            h1 { font-size: 35px; }
+            
             .gallery-grid { 
                 grid-template-columns: 1fr; 
                 grid-auto-rows: 250px;
@@ -193,6 +143,13 @@
             .gallery-item:nth-child(1), .gallery-item:nth-child(6) { grid-column: 1 / 2; grid-row: span 1; }
             .gallery-item:nth-child(2), .gallery-item:nth-child(3), 
             .gallery-item:nth-child(4), .gallery-item:nth-child(5) { grid-column: 1 / 2; grid-row: span 1; }
+
+            /* حل مشكلة أجهزة اللمس التي لا تدعم Hover */
+            .gallery-item::after { opacity: 0.8; } /* إظهار التدرج اللوني دائماً */
+            .gallery-content { 
+                opacity: 1; /* إظهار المحتوى دائماً */
+                transform: translateY(0); 
+            }
         }
     </style>
 {% endblock %}

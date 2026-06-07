@@ -90,8 +90,35 @@
             margin: 5px 0 0 0;
         }
 
-        @media (max-width: 992px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 576px) { .team-grid { grid-template-columns: 1fr; } }
+        /* --- التجاوب (Responsive) --- */
+        
+        /* شاشات التابلت */
+        @media (max-width: 992px) { 
+            .team-grid { grid-template-columns: repeat(2, 1fr); } 
+        }
+
+        /* شاشات الموبايل والتابلت الصغير */
+        @media (max-width: 768px) {
+            .team-section {
+                padding: 40px 5%; /* تقليل الهوامش الجانبية والعلوية لتوفير مساحة */
+            }
+            h1 {
+                font-size: 35px; /* تصغير حجم العنوان */
+                margin-bottom: 30px;
+                text-align: center; /* توسيط العنوان في الشاشات الصغيرة ليكون أجمل */
+            }
+            .member-info {
+                opacity: 1; /* إظهار الأسماء بشكل دائم لأن الموبايل لا يدعم تأثير الـ Hover */
+                background: rgba(239, 100, 36, 0.85);
+                padding: 15px;
+            }
+        }
+
+        /* شاشات الموبايل الصغيرة */
+        @media (max-width: 576px) { 
+            .team-grid { grid-template-columns: 1fr; }
+            .member-card { height: 320px; } /* تعديل بسيط لارتفاع الكارت ليناسب شاشة الهاتف */
+        }
     </style>
 {% endblock %}
 
@@ -102,21 +129,21 @@
 
             <div class="team-grid">
                 <div class="member-card">
-                    <img src="../static/images/20.jpeg" alt="د/ وليد العصري" class="member-img">
+                    <img src="{% static 'images/20.jpeg' %}" alt="د/ وليد العصري" class="member-img">
                     <div class="member-info">
                         <h3 class="member-name">د/ وليد العصري</h3>
                         <p class="member-role">مصمم ومخرج الاستعراض</p>
                     </div>
                 </div>
                 <div class="member-card">
-                    <img src="../static/images/21.jpeg" alt="موسى عصام" class="member-img">
+                    <img src="{% static 'images/21.jpeg' %}" alt="موسى عصام" class="member-img">
                     <div class="member-info">
                         <h3 class="member-name">موسى عصام</h3>
                         <p class="member-role">مدرب المنتخب</p>
                     </div>
                 </div>
                 <div class="member-card">
-                    <img src="../static/images/25.jpeg" alt="شهد وليد" class="member-img">
+                    <img src="{% static 'images/25.jpeg' %}" alt="شهد وليد" class="member-img">
                     <div class="member-info">
                         <h3 class="member-name">شهد وليد</h3>
                         <p class="member-role">عضوة في المنتخب</p>
@@ -124,28 +151,28 @@
                 </div>
 
                 <div class="member-card">
-                    <img src="../static/images/23.jpeg" alt="د/ وليد العصري" class="member-img">
+                    <img src="{% static 'images/23.jpeg' %}" alt="د/ وليد العصري" class="member-img">
                     <div class="member-info">
                         <h3 class="member-name">يحيي ايهاب  </h3>
                         <p class="member-role">عضوة في المنتخب</p>
                     </div>
                 </div>
                 <div class="member-card">
-                    <img src="../static/images/24.jpeg" alt="دعاء طه" class="member-img">
+                    <img src="{% static 'images/24.jpeg' %}" alt="دعاء طه" class="member-img">
                     <div class="member-info">
                         <h3 class="member-name">دعاء طه</h3>
                         <p class="member-role">عضوة في المنتخب</p>
                     </div>
                 </div>
                 <div class="member-card">
-                    <img src="../static/images/22.jpeg" alt="عمر رزق" class="member-img">
+                    <img src="{% static 'images/22.jpeg' %}" alt="عمر رزق" class="member-img">
                     <div class="member-info">
                         <h3 class="member-name">عمر رزق</h3>
                         <p class="member-role">عضو في المنتخب</p>
                     </div>
                 </div>
                 <div class="member-card">
-                    <img src="../static/images/26.jpeg" alt="جنا عيد" class="member-img">
+                    <img src="{% static 'images/26.jpeg' %}" alt="جنا عيد" class="member-img">
                     <div class="member-info">
                         <h3 class="member-name">جنا عيد</h3>
                         <p class="member-role">عضوة في المنتخب</p>
@@ -153,15 +180,12 @@
                 </div>
 
                 <div class="member-card">
-                    <img src="../static/images/27.jpeg" alt="يوسف رضا" class="member-img">
+                    <img src="{% static 'images/27.jpeg' %}" alt="يوسف رضا" class="member-img">
                     <div class="member-info">
                         <h3 class="member-name">يوسف رضا</h3>
                         <p class="member-role">عضو في المنتخب</p>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </section>
