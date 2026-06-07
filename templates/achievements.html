@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_class %}inner-page{% endblock %}
+
+{% block logo %}
+    <img src="{% static 'images/nav2.png' %}" alt="منتخب الفنون الشعبية">
+{% endblock %}
+
+{% block extra_head %}
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        body.inner-page { 
+            background-color: #3e2723;
+            color: #ffffff;
+            background-image: url("{% static 'images/pattern.png' %}");
+            background-repeat: repeat;
+            background-size: 180px;
+            background-attachment: fixed;
+        }
+
+        .achievements-section {
+            width: 100%;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container { 
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        h1 { 
+            color: #ef6424; 
+            font-size: 45px; 
+            font-weight: 900; 
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .achievements-list {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .ach-item {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 30px 0;
+            border-bottom: 1px solid #5d4037; /* الخط الفاصل بين العناصر */
+            transition: all 0.4s ease-in-out;
+            cursor: pointer;
+        }
+
+        /* التأثير عند الـ Hover */
+        .ach-item:hover {
+            background-color: #fcf8e3;
+            padding-right: 20px; /* إضافة مسافة بسيطة عند التمرير */
+            padding-left: 20px;
+            border-radius: 10px;
+        }
+
+        .ach-item:hover .ach-year,
+        .ach-item:hover .ach-title,
+        .ach-item:hover .ach-desc {
+            color: #5d4037 !important;
+        }
+
+        .ach-year {
+            font-size: 48px;
+            font-weight: 900;
+            color: #ef6424;
+            min-width: 120px;
+            text-align: center;
+            transition: color 0.4s ease;
+        }
+
+        .ach-content {
+            text-align: right;
+            flex-grow: 1;
+        }
+
+        .ach-title {
+            font-size: 26px;
+            font-weight: 900;
+            margin: 0 0 10px 0;
+            color: #ffffff;
+            transition: color 0.4s ease;
+        }
+
+        .ach-desc {
+            font-size: 18px;
+            margin: 0;
+            color: #d7ccc8;
+            transition: color 0.4s ease;
+        }
+
+        @media (max-width: 768px) {
+            .ach-item { flex-direction: column; text-align: center; gap: 15px; }
+            .ach-year { min-width: auto; }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <section class="achievements-section">
+        <div class="container">
+            <h1>الإنجازات</h1>
+            
+            <div class="achievements-list">
+                <div class="ach-item">
+                    <div class="ach-year">2025</div>
+                    <div class="ach-content">
+                        <h3 class="ach-title">المركز الثاني - مهرجان إبداع</h3>
+                        <p class="ach-desc">حصد الفريق على المركز الثاني على مستوى الجامعات المصرية في مهرجان إبداع</p>
+                    </div>
+                </div>
+
+                <div class="ach-item">
+                    <div class="ach-year">2022</div>
+                    <div class="ach-content">
+                        <h3 class="ach-title">جائزة أفضل عرض فني</h3>
+                        <p class="ach-desc">جائزة أفضل عرض فني متكامل في مسابقة الجامعات على مستوى الدلتا</p>
+                    </div>
+                </div>
+
+                <div class="ach-item">
+                    <div class="ach-year">2018</div>
+                    <div class="ach-content">
+                        <h3 class="ach-title">تمثيل مصر في أوكرانيا</h3>
+                        <p class="ach-desc">تمثيل المنتخب لمصر في أوكرانيا بعروض من الفلكلور المصري</p>
+                    </div>
+                </div>
+
+                <div class="ach-item">
+                    <div class="ach-year">2015</div>
+                    <div class="ach-content">
+                        <h3 class="ach-title">تمثيل مصر في اليونان</h3>
+                        <p class="ach-desc">شارك المنتخب في مهرجان يونينيا الدولي باليونان</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

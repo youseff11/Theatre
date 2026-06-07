@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_class %}inner-page{% endblock %}
+
+{% block logo %}
+    <img src="{% static 'images/nav2.png' %}" alt="منتخب الفنون الشعبية">
+{% endblock %}
+
+{% block extra_head %}
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        body.inner-page { 
+            background-color: #fcf8e3; 
+            color: #5d4037;
+            background-image: url("{% static 'images/pattern.png' %}");
+            background-repeat: repeat;
+            background-size: 180px;
+            background-attachment: fixed;
+        }
+
+        .offers-section {
+            width: 100%;
+            min-height: calc(100vh - 95px);
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container { 
+            max-width: 1200px;
+            width: 100%;
+            text-align: right;
+            margin-bottom: 40px;
+        }
+
+        h1 { 
+            color: #ef6424; 
+            font-size: 45px; 
+            font-weight: 900; 
+            margin-bottom: 20px;
+        }
+
+        .offers-grid {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .offer-card {
+            position: relative;
+            height: 380px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+        }
+
+        .offer-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 1;
+        }
+
+        .offer-card:hover .offer-bg {
+            transform: scale(1.1);
+        }
+
+        .offer-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(62, 39, 35, 0.95) 10%, rgba(93, 64, 55, 0.6) 100%);
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .offer-card:hover::after {
+            opacity: 1;
+        }
+
+        .offer-content {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            padding: 30px;
+            z-index: 3;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .offer-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            transition: transform 0.4s ease, color 0.4s ease;
+        }
+
+        .offer-description {
+            font-size: 16px;
+            font-weight: 700;
+            color: #e4d7c5;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .offer-card:hover .offer-title {
+            transform: translateY(-5px);
+            text-shadow: none;
+        }
+
+        .offer-card:hover .offer-description {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.1s;
+        }
+
+        @media (max-width: 992px) {
+            .offers-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .offers-grid { grid-template-columns: 1fr; }
+            .offer-card { height: 320px; }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <section class="offers-section">
+        <div class="container">
+            <h1>العروض الحالية</h1>
+        </div>
+
+        <div class="offers-grid">
+            <div class="offer-card">
+                <div class="offer-bg" style="background-image: url('{% static 'images/54.jpeg' %}');"></div>
+                <div class="offer-content">
+                    <h3 class="offer-title">عرض الفرعوني</h3>
+                    <p class="offer-description">عرض شعبي يجسد قوة العمال وروح العمل الجماعي</p>
+                </div>
+            </div>
+
+            <div class="offer-card">
+                <div class="offer-bg" style="background-image: url('{% static 'images/53.jpeg' %}');"></div>
+                <div class="offer-content">
+                    <h3 class="offer-title">عرض الفلاحي</h3>
+                    <p class="offer-description">عرض يعكس أجواء الريف المصري وعاداته الأصيلة</p>
+                </div>
+            </div>
+
+            <div class="offer-card">
+                <div class="offer-bg" style="background-image: url('{% static 'images/50.jpeg' %}');"></div>
+                <div class="offer-content">
+                    <h3 class="offer-title">عرض السيناوي</h3>
+                    <p class="offer-description">عرض يعبر عن تراث وثقافة أهل سيناء</p>
+                </div>
+            </div>
+
+            <div class="offer-card">
+                <div class="offer-bg" style="background-image: url('{% static 'images/55.jpeg' %}');"></div>
+                <div class="offer-content">
+                    <h3 class="offer-title">عرض تحيا مصر</h3>
+                    <p class="offer-description">عرض لوحة وطنية تحتفي بحب مصر</p>
+                </div>
+            </div>
+
+            <div class="offer-card">
+                <div class="offer-bg" style="background-image: url('{% static 'images/51.jpeg' %}');"></div>
+                <div class="offer-content">
+                    <h3 class="offer-title">عرض الليلة المحمدية</h3>
+                    <p class="offer-description">عرض مستوحى من الأجواء الروحانية والمدائح النبوية</p>
+                </div>
+            </div>
+
+            <div class="offer-card">
+                <div class="offer-bg" style="background-image: url('{% static 'images/52.jpeg' %}');"></div>
+                <div class="offer-content">
+                    <h3 class="offer-title">عرض السمسمية</h3>
+                    <p class="offer-description">عرض يجسد تراث مدن القناة وفنون السمسمية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

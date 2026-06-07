@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_class %}inner-page{% endblock %}
+{% block logo %}
+    <img src="{% static 'images/nav2.png' %}" alt="منتخب الفنون الشعبية">
+{% endblock %}
+
+{% block extra_head %}
+    <style>
+        body.inner-page { 
+            background-color: #fcf8e3; 
+            color: #5d4037;
+            background-image: url("{% static 'images/pattern.png' %}");
+            background-attachment: fixed;
+        }
+
+        .team-section {
+            width: 100%;
+            padding: 80px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container { 
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 { 
+            color: #ef6424; 
+            font-size: 45px; 
+            font-weight: 900; 
+            margin-bottom: 50px;
+            text-align: right;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .member-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            cursor: pointer;
+            height: 350px;
+            background-color: #d7ccc8;
+        }
+
+        .member-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .member-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(239, 100, 36, 0.9);
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            color: white;
+        }
+
+        .member-card:hover .member-info {
+            opacity: 1;
+        }
+
+        .member-card:hover .member-img {
+            transform: scale(1.1);
+        }
+
+        .member-name {
+            font-size: 20px;
+            font-weight: 900;
+            margin: 0;
+        }
+
+        .member-role {
+            font-size: 14px;
+            margin: 5px 0 0 0;
+        }
+
+        @media (max-width: 992px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 576px) { .team-grid { grid-template-columns: 1fr; } }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <section class="team-section">
+        <div class="container">
+            <h1>الفريق</h1>
+
+            <div class="team-grid">
+                <div class="member-card">
+                    <img src="../static/images/20.jpeg" alt="د/ وليد العصري" class="member-img">
+                    <div class="member-info">
+                        <h3 class="member-name">د/ وليد العصري</h3>
+                        <p class="member-role">مصمم ومخرج الاستعراض</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="../static/images/21.jpeg" alt="موسى عصام" class="member-img">
+                    <div class="member-info">
+                        <h3 class="member-name">موسى عصام</h3>
+                        <p class="member-role">مدرب المنتخب</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="../static/images/25.jpeg" alt="شهد وليد" class="member-img">
+                    <div class="member-info">
+                        <h3 class="member-name">شهد وليد</h3>
+                        <p class="member-role">عضوة في المنتخب</p>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <img src="../static/images/23.jpeg" alt="د/ وليد العصري" class="member-img">
+                    <div class="member-info">
+                        <h3 class="member-name">يحيي ايهاب  </h3>
+                        <p class="member-role">عضوة في المنتخب</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="../static/images/24.jpeg" alt="دعاء طه" class="member-img">
+                    <div class="member-info">
+                        <h3 class="member-name">دعاء طه</h3>
+                        <p class="member-role">عضوة في المنتخب</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="../static/images/22.jpeg" alt="عمر رزق" class="member-img">
+                    <div class="member-info">
+                        <h3 class="member-name">عمر رزق</h3>
+                        <p class="member-role">عضو في المنتخب</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="../static/images/26.jpeg" alt="جنا عيد" class="member-img">
+                    <div class="member-info">
+                        <h3 class="member-name">جنا عيد</h3>
+                        <p class="member-role">عضوة في المنتخب</p>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <img src="../static/images/27.jpeg" alt="يوسف رضا" class="member-img">
+                    <div class="member-info">
+                        <h3 class="member-name">يوسف رضا</h3>
+                        <p class="member-role">عضو في المنتخب</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

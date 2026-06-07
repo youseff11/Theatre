@@ -1,0 +1,245 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_class %}inner-page{% endblock %}
+
+{% block logo %}
+    <img src="{% static 'images/nav2.png' %}" alt="منتخب الفنون الشعبية">
+{% endblock %}
+
+{% block extra_head %}
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        body.inner-page { 
+            background-color: #fcf8e3; 
+            color: #5d4037;
+            background-image: url("{% static 'images/pattern.png' %}");
+            background-repeat: repeat;
+            background-size: 180px;
+            background-attachment: fixed;
+        }
+
+        .first-page-section {
+            width: 100%;
+            min-height: calc(100vh - 95px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .container { 
+            max-width: 1050px;
+            width: 100%;
+            text-align: right;
+        }
+
+        h1 { 
+            color: #ef6424; 
+            font-size: 45px; 
+            font-weight: 900; 
+            margin-bottom: 40px;
+            text-align: right;
+        }
+
+        p { 
+            line-height: 2.3;
+            font-size: 26px;
+            font-weight: 700;
+            color: #635345;
+            margin-bottom: 35px;
+            text-align: justify;
+            direction: rtl;
+        }
+
+        .stats-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url("{% static 'images/5.jpeg' %}"); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .stats-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stat-card {
+            background: rgba(245, 235, 215, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 50px 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .stat-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-card:nth-child(1) { transition-delay: 0.1s; }
+        .stat-card:nth-child(2) { transition-delay: 0.2s; }
+        .stat-card:nth-child(3) { transition-delay: 0.3s; }
+        .stat-card:nth-child(4) { transition-delay: 0.4s; }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-number {
+            font-size: 70px;
+            font-weight: 100;
+            color: #ef6424;
+            line-height: 1;
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .stat-title {
+            font-size: 26px;
+            font-weight: 900;
+            color: #5d4037;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 992px) {
+            .stats-section { height: auto; min-height: 100vh; }
+            .stats-container { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 576px) {
+            .stats-container { grid-template-columns: 1fr; }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <section class="first-page-section">
+        <main class="container">
+            <h1>عن الفريق</h1>
+            
+            <p>
+                تأسس منتخب الفنون الشعبية بجامعة بنها ليكون منصة حية للحفاظ على التراث الشعبي المصري 
+                وتقديمه بصورة فنية معاصرة تليق بعراقته. يضم الفريق مجموعة من الراقصين والراقصات 
+                الموهوبين من مختلف كليات الجامعة.
+            </p>
+
+            <p>
+                يحظى الفريق بدعم كامل من إدارة الجامعة ورعاية الأنشطة الطلابية, إيماناً بأهمية الفنون الشعبية 
+                كجسر يربط بين الأجيال ويحفظ الهوية الثقافية المصرية. من خلال العروض والمشاركات في 
+                المهرجانات المحلية والدولية, يسعى الفريق لنقل روح مصر الأصيلة إلى العالم.
+            </p>
+        </main>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-number" data-target="15">0</span>
+                    <img src="{% static 'images/medal.png' %}" alt="سنوات التميز" class="stat-icon">
+                </div>
+                <h3 class="stat-title">سنوات من التميز</h3>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-number" data-target="10">0</span>
+                    <img src="{% static 'images/trophy.png' %}" alt="المهرجانات" class="stat-icon">
+                </div>
+                <h3 class="stat-title">مهرجان</h3>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-number" data-target="30">0</span>
+                    <img src="{% static 'images/theater.png' %}" alt="العروض" class="stat-icon">
+                </div>
+                <h3 class="stat-title">عرض مسرحى</h3>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-number" data-target="50">0</span>
+                    <img src="{% static 'images/member.png' %}" alt="الأعضاء" class="stat-icon">
+                </div>
+                <h3 class="stat-title">عضو فعال</h3>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll('.stat-card');
+            const numbers = document.querySelectorAll('.stat-number');
+            
+            const animateCounters = () => {
+                numbers.forEach(num => {
+                    const target = +num.getAttribute('data-target');
+                    const speed = 2000 / target;
+                    
+                    const updateCount = () => {
+                        const current = +num.innerText;
+                        if (current < target) {
+                            num.innerText = Math.ceil(current + 1);
+                            setTimeout(updateCount, speed);
+                        } else {
+                            num.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        cards.forEach(card => card.classList.add('show'));
+                        animateCounters();
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            observer.observe(document.querySelector('.stats-section'));
+        });
+    </script>
+{% endblock %}
