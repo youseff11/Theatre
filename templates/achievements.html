@@ -3,10 +3,6 @@
 
 {% block body_class %}inner-page{% endblock %}
 
-{% block logo %}
-    <img src="{% static 'images/nav2.png' %}" alt="منتخب الفنون الشعبية">
-{% endblock %}
-
 {% block extra_head %}
     <style>
         html, body {
@@ -14,6 +10,18 @@
             padding: 0;
             width: 100%;
         }
+
+        /* 🎯 التعديل الجديد المأخوذ من الـ index 🎯 */
+        .logo { display: flex; align-items: center; gap: 15px; height: 100%; }
+        .logo img { 
+            height: 75px !important; 
+            width: auto !important; 
+            transition: all 0.3s ease; 
+        }
+        
+        /* بما أن الصفحة داخلية وغامقة دائماً، نُجبر الصورتين على الظهور معاً كحالة الأقسام الغامقة في الـ index */
+        .logo img.logo-dark { display: block !important; }
+        .logo img.navvv { display: block !important; }
 
         body.inner-page { 
             background-color: #3e2723;
@@ -63,7 +71,7 @@
         }
 
         /* التأثير عند الـ Hover */
-        @media (hover: hover) { /* ضمان تطبيق التأثير فقط على الأجهزة التي تدعم الماوس */
+        @media (hover: hover) { 
             .ach-item:hover {
                 background-color: #fcf8e3;
                 padding-right: 20px; 
@@ -110,11 +118,11 @@
         /* --- التجاوب (Responsive) للموبايل --- */
         @media (max-width: 768px) {
             .achievements-section {
-                padding: 40px 5%; /* تقليل الهوامش لتناسب الموبايل */
+                padding: 40px 5%; 
             }
             
             h1 {
-                font-size: 35px; /* تصغير العنوان الرئيسي */
+                font-size: 35px; 
                 margin-bottom: 30px;
             }
 
@@ -126,19 +134,19 @@
 
             .ach-year { 
                 min-width: auto; 
-                font-size: 38px; /* تصغير حجم السنة */
+                font-size: 38px; 
             }
 
             .ach-content {
-                text-align: center; /* توسيط النص بالكامل بدلاً من اليمين في الموبايل */
+                text-align: center; 
             }
 
             .ach-title {
-                font-size: 22px; /* تصغير عنوان الإنجاز */
+                font-size: 22px; 
             }
 
             .ach-desc {
-                font-size: 16px; /* تصغير الوصف */
+                font-size: 16px; 
             }
         }
     </style>
